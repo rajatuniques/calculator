@@ -32,6 +32,25 @@ function operate(operator, a, b) {
     }
 }
 
+function round_off(a) {
+    let idx = -1;
+    for(let i=0; i<a.length; i++) {
+        if(a[i]==='.') {
+            idx = i;
+            break;
+        }
+    }
+    if(idx===-1) {
+        return a;
+    }
+    if(a.substr(i).length <= 3) {
+        return a;
+    }
+    else {
+        return String(Number(a).toFixed(3));
+    }
+}
+
 let first_operand = 0;
 let operator = '+';
 let second_operand = 0;
@@ -53,7 +72,7 @@ clear.addEventListener("click", () => {
 
 numbers.forEach((num) => {
     num.addEventListener("click", () => {
-        if(display.textContent==='0') {
+        if(display.textContent==='0' || operator_clicked===1) {
             display.textContent = "";
         }
         let display_onScrn = display.textContent;
@@ -76,7 +95,10 @@ operators.forEach((op) => {
             display.textContent = "0";
         }
         else {
-            return;
+            let operation_result = operate(operator, first_operand, second_operand);
+            first_operand = operation_result;
+            display.textContent = operation_result;
+            operator = op.textContent;
         }
     });
 });
