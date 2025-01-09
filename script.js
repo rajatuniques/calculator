@@ -32,19 +32,23 @@ function operate(operator, a, b) {
     }
 }
 
-let first_operand;
-let operator;
-let second_operand;
-let operator_clicked = false;
+let first_operand = 0;
+let operator = '+';
+let second_operand = 0;
+let operator_clicked = 0;
 
 const clear = document.querySelector("#clear");
 const display = document.querySelector(".display");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
+const result = document.querySelector("#equal");
 
 clear.addEventListener("click", () => {
     display.textContent = "0";
-    operator_clicked = false;
+    first_operand = 0;
+    operator = '+';
+    second_operand = 0;
+    operator_clicked = 0;
 });
 
 numbers.forEach((num) => {
@@ -54,7 +58,7 @@ numbers.forEach((num) => {
         }
         let display_onScrn = display.textContent;
         display_onScrn += num.textContent;
-        if(operator_clicked===false) {
+        if(operator_clicked===0) {
             first_operand = display_onScrn;
         }
         else{
@@ -66,8 +70,8 @@ numbers.forEach((num) => {
 
 operators.forEach((op) => {
     op.addEventListener("click", () => {
-        if(operator_clicked===false) {
-            operator_clicked = true;
+        if(operator_clicked===0) {
+            operator_clicked = 1;
             operator = op.textContent;
             display.textContent = "0";
         }
@@ -75,4 +79,16 @@ operators.forEach((op) => {
             return;
         }
     });
+});
+
+result.addEventListener("click", () => {
+    if(operator_clicked===1) {
+        let operation_result = operate(operator, first_operand, second_operand);
+        first_operand = operation_result;
+        display.textContent = operation_result;
+        operator_clicked = 0;
+    }
+    else {
+        return;
+    }
 });
