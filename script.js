@@ -56,6 +56,7 @@ let first_operand = 0;
 let operator = '+';
 let second_operand = 0;
 let operator_clicked = 0;
+let no_2nd_operand_selected = 0;
 
 const clear = document.querySelector("#clear");
 const display = document.querySelector(".display");
@@ -69,6 +70,7 @@ clear.addEventListener("click", () => {
     operator = '+';
     second_operand = 0;
     operator_clicked = 0;
+    no_2nd_operand_selected = 0;
 });
 
 numbers.forEach((num) => {
@@ -82,6 +84,7 @@ numbers.forEach((num) => {
             first_operand = display_onScrn;
         }
         else{
+            no_2nd_operand_selected = 1;
             second_operand = display_onScrn;
         }
         display.textContent = display_onScrn;
@@ -95,11 +98,20 @@ operators.forEach((op) => {
             operator = op.textContent;
         }
         else {
+            if(no_2nd_operand_selected===0) {
+                if(operator==='*' || operator==='/') {
+                    second_operand = 1;
+                }
+                else {
+                    second_operand = 0;
+                }
+            }
             let operation_result = operate(operator, first_operand, second_operand);
             first_operand = operation_result;
             display.textContent = operation_result;
             operator = op.textContent;
         }
+        console.log(operator);
     });
 });
 
