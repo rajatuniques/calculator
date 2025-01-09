@@ -43,11 +43,11 @@ function round_off(a) {
     if(idx===-1) {
         return a;
     }
-    if(a.substr(i).length <= 3) {
+    if(a.substr(i).length <= 6) {
         return a;
     }
     else {
-        return String(Number(a).toFixed(3));
+        return String(Number(a).toFixed(6));
     }
 }
 
