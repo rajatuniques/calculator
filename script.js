@@ -43,15 +43,16 @@ const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
 clear.addEventListener("click", () => {
-    display.textContent = "";
+    display.textContent = "0";
+    operator_clicked = false;
 });
 
 numbers.forEach((num) => {
     num.addEventListener("click", () => {
-        let display_onScrn = display.textContent;
-        if(display_onScrn==='0') {
+        if(display.textContent==='0') {
             display.textContent = "";
         }
+        let display_onScrn = display.textContent;
         display_onScrn += num.textContent;
         if(operator_clicked===false) {
             first_operand = display_onScrn;
@@ -68,6 +69,7 @@ operators.forEach((op) => {
         if(operator_clicked===false) {
             operator_clicked = true;
             operator = op.textContent;
+            display.textContent = "0";
         }
         else {
             return;
