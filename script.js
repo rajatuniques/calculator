@@ -35,3 +35,10 @@ function operate(operator, a, b) {
 let first_operand;
 let operator;
 let second_operand;
+
+const clear = document.querySelector("#clear");
+const display = document.querySelector(".display");
+
+clear.addEventListener("click", () => {
+    display.textContent = "";
+});
