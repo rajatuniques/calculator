@@ -42,3 +42,4 @@ const display = document.querySelector(".display");
 clear.addEventListener("click", () => {
     display.textContent = "";
 });
+
