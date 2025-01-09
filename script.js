@@ -35,21 +35,42 @@ function operate(operator, a, b) {
 let first_operand;
 let operator;
 let second_operand;
+let operator_clicked = false;
 
 const clear = document.querySelector("#clear");
 const display = document.querySelector(".display");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 
 clear.addEventListener("click", () => {
     display.textContent = "";
 });
 
-const numbers = document.querySelectorAll(".number");
-
 numbers.forEach((num) => {
     num.addEventListener("click", () => {
         let display_onScrn = display.textContent;
+        if(display_onScrn==='0') {
+            display.textContent = "";
+        }
         display_onScrn += num.textContent;
-        first_operand = display_onScrn;
+        if(operator_clicked===false) {
+            first_operand = display_onScrn;
+        }
+        else{
+            second_operand = display_onScrn;
+        }
         display.textContent = display_onScrn;
+    });
+});
+
+operators.forEach((op) => {
+    op.addEventListener("click", () => {
+        if(operator_clicked===false) {
+            operator_clicked = true;
+            operator = op.textContent;
+        }
+        else {
+            return;
+        }
     });
 });
