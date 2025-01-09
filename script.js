@@ -1,17 +1,17 @@
 function add(a, b) {
-    return +a + +b;
+    return round_off(+a + +b);
 }
 
 function subtract(a, b) {
-    return a - b;
+    return round_off(a - b);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return round_off(a * b);
 }
 
 function divide(a, b) {
-    return a / b;
+    return round_off(a / b);
 }
 
 function operate(operator, a, b) {
@@ -33,6 +33,7 @@ function operate(operator, a, b) {
 }
 
 function round_off(a) {
+    a = String(a);
     let idx = -1;
     for(let i=0; i<a.length; i++) {
         if(a[i]==='.') {
@@ -43,7 +44,7 @@ function round_off(a) {
     if(idx===-1) {
         return a;
     }
-    if(a.substr(i).length <= 6) {
+    if(a.substr(idx).length <= 6) {
         return a;
     }
     else {
@@ -92,7 +93,6 @@ operators.forEach((op) => {
         if(operator_clicked===0) {
             operator_clicked = 1;
             operator = op.textContent;
-            display.textContent = "0";
         }
         else {
             let operation_result = operate(operator, first_operand, second_operand);
