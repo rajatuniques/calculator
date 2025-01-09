@@ -16,16 +16,16 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
     if(operator==='+') {
-        add(a, b);
+        return add(a, b);
     }
     else if(operator==='-') {
-        subtract(a, b);
+        return subtract(a, b);
     }
     else if(operator==='*') {
-        multiply(a, b);
+        return multiply(a, b);
     }
     else if(operator==='/') {
-        divide(a, b);
+        return divide(a, b);
     }
     else {
         alert("Not a valid operator for this calculator!");
