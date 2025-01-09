@@ -43,3 +43,13 @@ clear.addEventListener("click", () => {
     display.textContent = "";
 });
 
+const numbers = document.querySelectorAll(".number");
+
+numbers.forEach((num) => {
+    num.addEventListener("click", () => {
+        let display_onScrn = display.textContent;
+        display_onScrn += num.textContent;
+        first_operand = display_onScrn;
+        display.textContent = display_onScrn;
+    });
+});
