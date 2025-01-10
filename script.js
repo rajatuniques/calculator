@@ -56,7 +56,8 @@ let first_operand = 0;
 let operator = '+';
 let second_operand = 0;
 let operator_clicked = 0;
-let no_2nd_operand_selected = 0;
+let no_2nd_operand_selected = 1;
+let clear_display_for_2nd_operand = 1;
 
 const clear = document.querySelector("#clear");
 const display = document.querySelector(".display");
@@ -70,21 +71,29 @@ clear.addEventListener("click", () => {
     operator = '+';
     second_operand = 0;
     operator_clicked = 0;
-    no_2nd_operand_selected = 0;
+    no_2nd_operand_selected = 1;
+    clear_display_for_2nd_operand = 1;
 });
 
 numbers.forEach((num) => {
     num.addEventListener("click", () => {
-        if(display.textContent==='0' || operator_clicked===1) {
+        if(display.textContent==='0') {
             display.textContent = "";
         }
+        if(operator_clicked===1) {
+            if(clear_display_for_2nd_operand===1) {
+                display.textContent = "";
+                clear_display_for_2nd_operand = 0;
+            }
+        }
         let display_onScrn = display.textContent;
-        display_onScrn += num.textContent;
         if(operator_clicked===0) {
+            display_onScrn += num.textContent;
             first_operand = display_onScrn;
         }
         else{
-            no_2nd_operand_selected = 1;
+            no_2nd_operand_selected = 0;
+            display_onScrn += num.textContent;
             second_operand = display_onScrn;
         }
         display.textContent = display_onScrn;
@@ -98,7 +107,7 @@ operators.forEach((op) => {
             operator = op.textContent;
         }
         else {
-            if(no_2nd_operand_selected===0) {
+            if(no_2nd_operand_selected===1) {
                 if(operator==='*' || operator==='/') {
                     second_operand = 1;
                 }
@@ -106,10 +115,14 @@ operators.forEach((op) => {
                     second_operand = 0;
                 }
             }
-            let operation_result = operate(operator, first_operand, second_operand);
-            first_operand = operation_result;
-            display.textContent = operation_result;
-            operator = op.textContent;
+            else {
+                let operation_result = operate(operator, first_operand, second_operand);
+                first_operand = operation_result;
+                display.textContent = operation_result;
+                no_2nd_operand_selected = 1;
+                operator = op.textContent;
+                clear_display_for_2nd_operand = 1;
+            }
         }
         console.log(operator);
     });
@@ -120,7 +133,9 @@ result.addEventListener("click", () => {
         let operation_result = operate(operator, first_operand, second_operand);
         first_operand = operation_result;
         display.textContent = operation_result;
+        no_2nd_operand_selected = 1;
         operator_clicked = 0;
+        clear_display_for_2nd_operand = 1;
     }
     else {
         return;
