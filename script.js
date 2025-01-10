@@ -3,18 +3,18 @@ function add(a, b) {
 }
 
 function subtract(a, b) {
-    return round_off(a - b);
+    return round_off(((a * 10) - (b * 10))/10);
 }
 
 function multiply(a, b) {
-    return round_off(a * b);
+    return round_off(((a * 10) * (b * 10))/10);
 }
 
 function divide(a, b) {
     if(b==='0') {
         return "Math Error";
     }
-    return round_off(a / b);
+    return round_off(((a * 10) / (b * 10))/10);
 }
 
 function operate(operator, a, b) {
