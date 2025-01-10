@@ -201,3 +201,17 @@ decimal.addEventListener("click", () => {
     display.textContent += '.';
     decimal_present = 1;
 });
+
+backspace.addEventListener("click", () => {
+    if(display.textContent==='0') {
+        return;
+    }
+    if(display.textContent.length===1) {
+        display.textContent = '0';
+        return;
+    }
+    let current_display = display.textContent;
+    let updated_display = current_display.slice(0, -1);
+    display.textContent = updated_display;
+
+});
