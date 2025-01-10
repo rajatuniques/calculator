@@ -14,7 +14,7 @@ function divide(a, b) {
     if(b==='0') {
         return "Math Error";
     }
-    return round_off(((a * 10) / (b * 10))/10);
+    return round_off(a / b);
 }
 
 function operate(operator, a, b) {
