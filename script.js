@@ -1,5 +1,5 @@
 function add(a, b) {
-    return round_off(+a + +b);
+    return round_off(((+a * 10) + (+b * 10))/10);
 }
 
 function subtract(a, b) {
