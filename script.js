@@ -212,6 +212,12 @@ backspace.addEventListener("click", () => {
     }
     let current_display = display.textContent;
     let updated_display = current_display.slice(0, -1);
+    if(operator_clicked===0) {
+        first_operand = updated_display;
+    }
+    else {
+        second_operand = updated_display;
+    }
     display.textContent = updated_display;
 });
 
