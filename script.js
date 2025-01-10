@@ -213,5 +213,45 @@ backspace.addEventListener("click", () => {
     let current_display = display.textContent;
     let updated_display = current_display.slice(0, -1);
     display.textContent = updated_display;
+});
+
+
+// enable keyboard support
+window.addEventListener("keydown", (e) => {
+    const num_pressed = document.querySelector(`.number[data-key*="${e.code}"]`);
+    const operator_pressed = document.querySelector(`.operator[data-key*="${e.code}"]`);
+    const decimal_pressed = document.querySelector(`.decimal[data-key*="${e.code}"]`);
+    const backspace_pressed = document.querySelector(`.backspace[data-key="${e.code}"]`);
+    const equal_pressed = document.querySelector(`#equal[data-key*="${e.code}"]`);
+    const clear_pressed = document.querySelector(`#clear[data-key*="${e.code}"]`);
+
+    console.log(e.code);
+    console.log(num_pressed);
+    console.log(operator_pressed);
+    console.log(decimal_pressed);
+    console.log(backspace_pressed);
+    console.log(equal_pressed);
+    console.log(clear_pressed);
+    if(num_pressed) {
+        num_pressed.click();
+    }
+    if((e.shiftKey && operator_pressed.textContent==='+')) {
+        operator_pressed.click();
+    }
+    if(operator_pressed) {
+        operator_pressed.click();
+    }
+    if(decimal_pressed) {
+        decimal_pressed.click();
+    }
+    if(backspace_pressed) {
+        backspace.click();
+    }
+    if(equal_pressed) {
+        equal_pressed.click();
+    }
+    if(clear_pressed) {
+        clear_pressed.click();
+    }
 
 });
