@@ -63,7 +63,7 @@ let operator = '+';
 let second_operand = 0;
 let operator_clicked = 0;
 let no_2nd_operand_selected = 1;
-let clear_display_for_2nd_operand = 1;
+let clear_display_for_2nd_operand = 0;
 let decimal_present = 0;
 
 const clear = document.querySelector("#clear");
@@ -81,7 +81,7 @@ clear.addEventListener("click", () => {
     second_operand = 0;
     operator_clicked = 0;
     no_2nd_operand_selected = 1;
-    clear_display_for_2nd_operand = 1;
+    clear_display_for_2nd_operand = 0;
     decimal_present = 0;
 });
 
@@ -100,6 +100,9 @@ numbers.forEach((num) => {
         }
         let display_onScrn = display.textContent;
         if(operator_clicked===0) {
+            if(search_decimal(String(first_operand))>-1) {
+                decimal_present = 1;
+            }
             display_onScrn += num.textContent;
             first_operand = display_onScrn;
         }
@@ -117,6 +120,8 @@ operators.forEach((op) => {
         if(operator_clicked===0) {
             operator_clicked = 1;
             operator = op.textContent;
+            clear_display_for_2nd_operand = 1;
+            decimal_present = 0;
         }
         else {
             if(no_2nd_operand_selected===1) {
@@ -161,8 +166,10 @@ result.addEventListener("click", () => {
             operator_clicked = 0;
             no_2nd_operand_selected = 1;
             clear_display_for_2nd_operand = 1;
+            decimal_present = 0;
             return;
         }
+        decimal_present = 0;
         first_operand = operation_result;
         display.textContent = operation_result;
         no_2nd_operand_selected = 1;
@@ -174,3 +181,23 @@ result.addEventListener("click", () => {
     }
 });
 
+decimal.addEventListener("click", () => {
+    if(decimal_present===1) {
+        return;
+    }
+    if(operator_clicked===0 && search_decimal(display.textContent) > -1) {
+        return;
+    }
+    if(operator_clicked===1) {
+        if(clear_display_for_2nd_operand===1) {
+            display.textContent = "";
+            clear_display_for_2nd_operand = 0;
+            decimal_present = 1;
+            no_2nd_operand_selected = 0;
+            display.textContent += "0.";
+            return;
+        }
+    }
+    display.textContent += '.';
+    decimal_present = 1;
+});
