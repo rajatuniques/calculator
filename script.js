@@ -11,6 +11,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if(b==='0') {
+        return "Math Error";
+    }
     return round_off(a / b);
 }
 
@@ -77,7 +80,7 @@ clear.addEventListener("click", () => {
 
 numbers.forEach((num) => {
     num.addEventListener("click", () => {
-        if(display.textContent==='0') {
+        if(display.textContent==='0' || display.textContent==="Math Error") {
             display.textContent = "";
         }
         if(operator_clicked===1) {
@@ -131,6 +134,15 @@ operators.forEach((op) => {
 result.addEventListener("click", () => {
     if(operator_clicked===1) {
         let operation_result = operate(operator, first_operand, second_operand);
+        if(operation_result==="Math Error") {
+            display.textContent = operation_result;
+            first_operand = 0;
+            operator = '+';
+            second_operand = 0;
+            operator_clicked = 0;
+            no_2nd_operand_selected = 1;
+            clear_display_for_2nd_operand = 1;
+        }
         first_operand = operation_result;
         display.textContent = operation_result;
         no_2nd_operand_selected = 1;
