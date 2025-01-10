@@ -7,7 +7,7 @@ function subtract(a, b) {
 }
 
 function multiply(a, b) {
-    return round_off(((a * 10) * (b * 10))/10);
+    return round_off(a * b);
 }
 
 function divide(a, b) {
