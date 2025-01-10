@@ -35,15 +35,18 @@ function operate(operator, a, b) {
     }
 }
 
-function round_off(a) {
-    a = String(a);
-    let idx = -1;
+function search_decimal(a) {
     for(let i=0; i<a.length; i++) {
         if(a[i]==='.') {
-            idx = i;
-            break;
+            return i;
         }
     }
+    return -1;
+}
+
+function round_off(a) {
+    a = String(a);
+    let idx = search_decimal(a);
     if(idx===-1) {
         return a;
     }
@@ -61,12 +64,15 @@ let second_operand = 0;
 let operator_clicked = 0;
 let no_2nd_operand_selected = 1;
 let clear_display_for_2nd_operand = 1;
+let decimal_present = 0;
 
 const clear = document.querySelector("#clear");
 const display = document.querySelector(".display");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const result = document.querySelector("#equal");
+const decimal = document.querySelector(".decimal");
+const backspace = document.querySelector(".backspace");
 
 clear.addEventListener("click", () => {
     display.textContent = "0";
@@ -76,17 +82,20 @@ clear.addEventListener("click", () => {
     operator_clicked = 0;
     no_2nd_operand_selected = 1;
     clear_display_for_2nd_operand = 1;
+    decimal_present = 0;
 });
 
 numbers.forEach((num) => {
     num.addEventListener("click", () => {
         if(display.textContent==='0' || display.textContent==="Math Error") {
             display.textContent = "";
+            decimal_present = 0;
         }
         if(operator_clicked===1) {
             if(clear_display_for_2nd_operand===1) {
                 display.textContent = "";
                 clear_display_for_2nd_operand = 0;
+                decimal_present = 0;
             }
         }
         let display_onScrn = display.textContent;
@@ -164,3 +173,4 @@ result.addEventListener("click", () => {
         return;
     }
 });
+
