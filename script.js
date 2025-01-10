@@ -120,6 +120,16 @@ operators.forEach((op) => {
             }
             else {
                 let operation_result = operate(operator, first_operand, second_operand);
+                if(operation_result==="Math Error") {
+                    display.textContent = operation_result;
+                    first_operand = 0;
+                    operator = '+';
+                    second_operand = 0;
+                    operator_clicked = 0;
+                    no_2nd_operand_selected = 1;
+                    clear_display_for_2nd_operand = 1;
+                    return;
+                }
                 first_operand = operation_result;
                 display.textContent = operation_result;
                 no_2nd_operand_selected = 1;
@@ -142,6 +152,7 @@ result.addEventListener("click", () => {
             operator_clicked = 0;
             no_2nd_operand_selected = 1;
             clear_display_for_2nd_operand = 1;
+            return;
         }
         first_operand = operation_result;
         display.textContent = operation_result;
