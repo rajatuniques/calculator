@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
     padding: 0px;
     margin: 0px;
@@ -6,12 +8,33 @@
 
 body {
     background-color: rgb(33, 37, 34);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
 }
 
 .calculator {
-    height: 400px;
+    height: 350px;
     width: 400px;
     background-color: #87F698;
     border: 5px solid #203C1B;
     border-radius: 12px;
+}
+
+
+.display {
+    font-family: "Press Start 2P", cursive;
+    height: 40px;
+    width: 350px;
+    padding: 8px 20px;
+    letter-spacing: 3px;
+    background-color: #ABA76F;
+    color: #3A3E18;
+    border: 2px solid #555849;
+    box-shadow: inset 5px 5px 5px #0B202440;
+    font-size: 22px;
+    text-align: right;
+    border-radius: 3px;
 }
