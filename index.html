@@ -10,24 +10,30 @@
 <body>
     <div class="calculator">
         <div class="display">0</div>
-        <button class="number" data-key="Digit1 Numpad1">1</button>
-        <button class="number" data-key="Digit2 Numpad2">2</button>
-        <button class="number" data-key="Digit3 Numpad3">3</button>
-        <button class="number" data-key="Digit4 Numpad4">4</button>
-        <button class="number" data-key="Digit5 Numpad5">5</button>
-        <button class="number" data-key="Digit6 Numpad6">6</button>
-        <button class="number" data-key="Digit7 Numpad7">7</button>
-        <button class="number" data-key="Digit8 Numpad8">8</button>
-        <button class="number" data-key="Digit9 Numpad9">9</button>
-        <button id="zero" class="number" data-key="Digit0 Numpad0">0</button>
-        <button class="decimal" data-key="Period NumpadDecimal">.</button>
-        <button class="backspace" data-key="Backspace">←</button>
-        <button id="plus" class="operator" data-key="Equal NumpadAdd">+</button>
-        <button class="operator" data-key="Minus NumpadSubtract">-</button>
-        <button class="operator" data-key="Multiply NumpadMultiply">*</button>
-        <button class="operator" data-key="Slash NumpadDivide">/</button>
-        <button id="equal" data-key="Enter NumpadEnter">=</button>
-        <button id="clear" data-key="KeyC Delete">AC</button>
+        <div class="wrapper">
+            <div class="wrapper-1">
+                <button class="number" data-key="Digit1 Numpad1">1</button>
+                <button class="number" data-key="Digit2 Numpad2">2</button>
+                <button class="number" data-key="Digit3 Numpad3">3</button>
+                <button class="number" data-key="Digit4 Numpad4">4</button>
+                <button class="number" data-key="Digit5 Numpad5">5</button>
+                <button class="number" data-key="Digit6 Numpad6">6</button>
+                <button class="number" data-key="Digit7 Numpad7">7</button>
+                <button class="number" data-key="Digit8 Numpad8">8</button>
+                <button class="number" data-key="Digit9 Numpad9">9</button>
+                <button id="zero" class="number" data-key="Digit0 Numpad0">0</button>
+                <button class="decimal" data-key="Period NumpadDecimal">.</button>
+            </div>
+            <div class="wrapper-2">
+                <button class="operator" data-key="Slash NumpadDivide">/</button>
+                <button id="clear" data-key="KeyC Delete">AC</button>
+                <button class="operator" data-key="Multiply NumpadMultiply">*</button>
+                <button class="backspace" data-key="Backspace">←</button>
+                <button id="plus" class="operator" data-key="Equal NumpadAdd">+</button>
+                <button class="operator" data-key="Minus NumpadSubtract">-</button>
+                <button id="equal" data-key="Enter NumpadEnter">=</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
