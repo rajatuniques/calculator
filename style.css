@@ -7,3 +7,11 @@
 body {
     background-color: rgb(33, 37, 34);
 }
+
+.calculator {
+    height: 400px;
+    width: 400px;
+    background-color: #87F698;
+    border: 5px solid #203C1B;
+    border-radius: 12px;
+}
