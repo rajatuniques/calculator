@@ -17,14 +17,15 @@ body {
 }
 
 .calculator {
-    height: 350px;
-    width: 400px;
+    height: 320px;
+    width: 370px;
     background-color: #87F698;
     border: 5px solid #203C1B;
     border-radius: 12px;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-flow: column nowrap;
+    margin: auto 0px;
 }
 
 .wrapper {
@@ -38,7 +39,7 @@ body {
 .display {
     font-family: "Press Start 2P", cursive;
     height: 40px;
-    width: 350px;
+    width: 330px;
     padding: 8px 20px;
     letter-spacing: 3px;
     background-color: #ABA76F;
@@ -86,7 +87,7 @@ button {
 }
 
 #zero {
-    flex: 0.57 0 auto;
+    flex: 0.65 0 auto;
 }
 
 #plus {
