@@ -156,7 +156,7 @@ operators.forEach((op) => {
                     return;
                 }
                 if(check_display_limit(operation_result)===-1) {
-                    display.textContent = "Result exceeded";
+                    display.textContent = "Above limits";
                     first_operand = 0;
                     operator = '+';
                     second_operand = 0;
@@ -191,7 +191,7 @@ result.addEventListener("click", () => {
             return;
         }
         if(check_display_limit(operation_result)===-1) {
-            display.textContent = "Result exceeded";
+            display.textContent = "Above limits";
             first_operand = 0;
             operator = '+';
             second_operand = 0;
