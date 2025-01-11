@@ -23,8 +23,17 @@ body {
     border: 5px solid #203C1B;
     border-radius: 12px;
     padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
+.wrapper {
+    display: flex;
+    gap: 8px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
 .display {
     font-family: "Press Start 2P", cursive;
@@ -45,6 +54,7 @@ button {
     height: 42px;
     width: 42px;
     padding: 5px;
+    margin: 5px;
     background-color: #4CA345;
     color: white;
     border: 1px solid #1F4117;
@@ -54,8 +64,29 @@ button {
     font-weight: 1000;
 }
 
+.wrapper-1 {
+    width: 400px;
+}
+
+
+.wrapper-1,
+.wrapper-2 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-2 {
+    flex-flow: column wrap;
+    height: 250px;
+    width: 300px;
+    align-content: center;
+    
+}
+
 #zero {
-    width: 88.5px;
+    flex: 0.53 0 auto;
 }
 
 #plus {
