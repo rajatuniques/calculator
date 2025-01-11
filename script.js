@@ -98,7 +98,7 @@ numbers.forEach((num) => {
         if(check_display_limit(display.textContent)===-1) {
             return;
         }
-        if(display.textContent==='0' || display.textContent==="Math Error") {
+        if(display.textContent==='0' || display.textContent==="Math Error" || display.textContent==="Above limits") {
             display.textContent = "";
             decimal_present = 0;
         }
