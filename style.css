@@ -86,7 +86,7 @@ button {
 }
 
 #zero {
-    flex: 0.53 0 auto;
+    flex: 0.55 0 auto;
 }
 
 #plus {
@@ -95,7 +95,16 @@ button {
 
 #clear {
     font-size: 22px;
+    font-weight: 800;
     background-color: #FF4E4E;
     border-color: #722828;
     box-shadow: 4px 4px 2px #bf505095;
+}
+
+p {
+    color: rgb(69, 255, 44);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 35px;
+    margin-top: -60px;
+    margin-bottom: 50px;
 }
