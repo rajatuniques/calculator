@@ -8,6 +8,7 @@
 }
 
 body {
+    height: 100vh;
     background-color: rgb(33, 37, 34);
     display: flex;
     flex-flow: column nowrap;
@@ -106,6 +107,5 @@ p {
     color: rgb(69, 255, 44);
     font-family: 'Press Start 2P', cursive;
     font-size: 35px;
-    margin-top: -60px;
-    margin-bottom: 70px;
+    margin-top: 0px;
 }
