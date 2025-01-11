@@ -52,3 +52,9 @@ button {
     box-shadow: 4px 4px 2px #1F411740;
     font-weight: 1000;
 }
+
+#plus,
+#clear,
+#zero {
+    width: 88.5px;
+}
