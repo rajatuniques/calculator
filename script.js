@@ -44,6 +44,14 @@ function search_decimal(a) {
     return -1;
 }
 
+function check_display_limit(a) {
+    a = String(a);
+    if(a.length>=12) {
+        return -1;
+    }
+    return 1;
+}
+
 function round_off(a) {
     a = String(a);
     let idx = search_decimal(a);
@@ -87,6 +95,9 @@ clear.addEventListener("click", () => {
 
 numbers.forEach((num) => {
     num.addEventListener("click", () => {
+        if(check_display_limit(display.textContent)===-1) {
+            return;
+        }
         if(display.textContent==='0' || display.textContent==="Math Error") {
             display.textContent = "";
             decimal_present = 0;
@@ -144,6 +155,16 @@ operators.forEach((op) => {
                     clear_display_for_2nd_operand = 1;
                     return;
                 }
+                if(check_display_limit(operation_result)===-1) {
+                    display.textContent = "Result exceeded";
+                    first_operand = 0;
+                    operator = '+';
+                    second_operand = 0;
+                    operator_clicked = 0;
+                    no_2nd_operand_selected = 1;
+                    clear_display_for_2nd_operand = 1;
+                    return;
+                }
                 first_operand = operation_result;
                 display.textContent = operation_result;
                 no_2nd_operand_selected = 1;
@@ -169,6 +190,16 @@ result.addEventListener("click", () => {
             decimal_present = 0;
             return;
         }
+        if(check_display_limit(operation_result)===-1) {
+            display.textContent = "Result exceeded";
+            first_operand = 0;
+            operator = '+';
+            second_operand = 0;
+            operator_clicked = 0;
+            no_2nd_operand_selected = 1;
+            clear_display_for_2nd_operand = 1;
+            return;
+        }
         decimal_present = 0;
         first_operand = operation_result;
         display.textContent = operation_result;
@@ -182,6 +213,9 @@ result.addEventListener("click", () => {
 });
 
 decimal.addEventListener("click", () => {
+    if(check_display_limit(display.textContent)===-1) {
+        return;
+    }
     if(decimal_present===1) {
         return;
     }
