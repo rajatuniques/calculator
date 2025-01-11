@@ -86,11 +86,11 @@ button {
 }
 
 #zero {
-    flex: 0.55 0 auto;
+    flex: 0.57 0 auto;
 }
 
 #plus {
-    height: 88.5px;
+    height: 94px;
 }
 
 #clear {
