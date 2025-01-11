@@ -4,6 +4,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -37,4 +38,17 @@ body {
     font-size: 22px;
     text-align: right;
     border-radius: 3px;
+}
+
+button {
+    height: 42px;
+    width: 42px;
+    padding: 5px;
+    background-color: #4CA345;
+    color: white;
+    border: 1px solid #1F4117;
+    border-radius: 2px;
+    font-size: 24px;
+    box-shadow: 4px 4px 2px #1F411740;
+    font-weight: 1000;
 }
