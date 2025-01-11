@@ -58,3 +58,13 @@ button {
 #zero {
     width: 88.5px;
 }
+
+#clear {
+    height: 88.5px;
+    width: 42px;
+    font-size: 22px;
+    background-color: #FF4E4E;
+    padding-bottom: 50px;
+    border-color: #722828;
+    box-shadow: 4px 4px 2px #bf505095;
+}
